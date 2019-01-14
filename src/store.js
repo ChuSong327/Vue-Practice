@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -16,9 +17,17 @@ export default new Vuex.Store({
   mutations: {
     ADD_FRUIT: (state, fruit) => {
       state.fruitList.push(fruit)
+    },
+    REMOVE_FRUIT: (state, fruit) => {
+      state.fruitList.splice(fruit, 1)
     }
   },
   actions: {
-
+    addFruit: (context, fruit) => {
+      context.commit("ADD_FRUIT", fruit)
+    },
+    removeFruit: (context, fruit) => {
+      context.commit("REMOVE_FRUIT", fruit)
+    }
   }
 })
